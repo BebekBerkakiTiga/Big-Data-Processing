@@ -11,6 +11,9 @@ npm (Node Package Manager, usually comes with Node.js)
 You can download Node.js from nodejs.org.
 
 Installation
+
+npm install
+
 Clone the Repository (or create a new React project):
 If you haven't already, create a new React project using Create React App:
 
