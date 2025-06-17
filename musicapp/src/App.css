@@ -1,0 +1,388 @@
+/* src/App.css or src/index.css */
+
+/* Import Inter font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom right, #4a047d, #2d025f); /* Gradient background */
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.loading-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Main App Container */
+.app-container {
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  color: #c9a0f8; /* Light purple */
+}
+
+/* Main Content Area */
+.main-content-area {
+  background: rgba(43, 27, 86, 0.7); /* Slightly darker, more opaque background */
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .main-content-area {
+    flex-direction: row;
+    gap: 40px;
+  }
+}
+
+/* Shared Section Styling */
+.music-player-section,
+.song-list-section {
+  background: rgba(30, 19, 58, 0.8); /* Darker, slightly more opaque */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content in sections */
+  flex: 1; /* Allows sections to grow and shrink */
+}
+
+.song-lists-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  flex: 1;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #c9a0f8; /* Light purple */
+  text-align: center;
+}
+
+/* Music Player Specifics */
+.player-content {
+  width: 100%;
+  text-align: center;
+}
+
+.album-art-container {
+  width: 200px;
+  height: 200px;
+  background-color: #555;
+  border-radius: 10px;
+  margin: 0 auto 25px auto;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.song-artist-genre {
+  font-size: 16px;
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: #555;
+  border-radius: 5px;
+  height: 8px;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background-color: #8a2be2; /* Purple */
+  height: 8px;
+  border-radius: 5px;
+  transition: width 0.1s linear;
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 30px;
+}
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.control-button {
+  padding: 15px;
+  background-color: #8a2be2; /* Purple */
+  color: #fff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-button svg {
+  width: 32px;
+  height: 32px;
+}
+
+.control-button:hover {
+  background-color: #9a4be2;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.play-pause-button {
+  padding: 20px; /* Larger for main play/pause */
+}
+
+.play-pause-button svg {
+  width: 40px;
+  height: 40px;
+}
+
+.like-button.liked {
+  background-color: #e53e3e; /* Red for liked */
+}
+
+.like-button.liked:hover {
+  background-color: #c53030;
+}
+
+.no-song-selected {
+  color: #bbb;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Song Grid and List Items */
+.song-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+@media (min-width: 640px) { /* Small screens and up */
+  .song-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 2 columns or more */
+  }
+}
+
+.song-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #444; /* Darker grey */
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.song-list-item:hover {
+  background-color: #555;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.song-list-item.current-song {
+  background-color: #8a2be2; /* Highlight current song */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.item-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: #fff;
+}
+
+.item-artist {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.like-toggle-button {
+  padding: 8px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #bbb;
+  transition: color 0.2s ease;
+  display: flex; /* For centering SVG */
+  align-items: center;
+  justify-content: center;
+}
+
+.like-toggle-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.like-toggle-button:hover {
+  color: #fff;
+}
+
+.like-toggle-button.liked {
+  color: #e53e3e; /* Red for liked */
+}
+
+.no-songs-message {
+  color: #bbb;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  .main-content-area {
+    padding: 25px;
+    gap: 25px;
+  }
+
+  .section-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .album-art-container {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+  }
+
+  .song-title {
+    font-size: 20px;
+  }
+
+  .song-artist-genre {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .control-button {
+    padding: 10px;
+  }
+
+  .control-button svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .play-pause-button {
+    padding: 15px;
+  }
+
+  .play-pause-button svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .song-list-item {
+    padding: 12px;
+  }
+
+  .item-title {
+    font-size: 16px;
+  }
+
+  .item-artist {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 30px;
+  }
+
+  .main-content-area {
+    padding: 15px;
+  }
+
+  .music-player-section,
+  .song-list-section {
+    padding: 20px;
+  }
+
+  .album-art-container {
+    width: 120px;
+    height: 120px;
+  }
+
+  .song-grid {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+}
